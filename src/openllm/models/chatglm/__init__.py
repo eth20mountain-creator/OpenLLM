@@ -23,7 +23,7 @@ _import_structure = {
 }
 
 try:
-    if not openllm.utils.is_torch_available():
+    if not openllm.utils.is_torch_available() or not openllm.utils.is_cpm_kernels_available():
         raise openllm.exceptions.MissingDependencyError
 except openllm.exceptions.MissingDependencyError:
     pass
@@ -31,12 +31,14 @@ else:
     _import_structure["modeling_chatglm"] = ["ChatGLM"]
 
 if t.TYPE_CHECKING:
-    from .configuration_chatglm import DEFAULT_PROMPT_TEMPLATE as DEFAULT_PROMPT_TEMPLATE
-    from .configuration_chatglm import START_CHATGLM_COMMAND_DOCSTRING as START_CHATGLM_COMMAND_DOCSTRING
+    from .configuration_chatglm import \
+        DEFAULT_PROMPT_TEMPLATE as DEFAULT_PROMPT_TEMPLATE
+    from .configuration_chatglm import \
+        START_CHATGLM_COMMAND_DOCSTRING as START_CHATGLM_COMMAND_DOCSTRING
     from .configuration_chatglm import ChatGLMConfig as ChatGLMConfig
 
     try:
-        if not openllm.utils.is_torch_available():
+        if not openllm.utils.is_torch_available() or not openllm.utils.is_cpm_kernels_available():
             raise openllm.exceptions.MissingDependencyError
     except openllm.exceptions.MissingDependencyError:
         pass
