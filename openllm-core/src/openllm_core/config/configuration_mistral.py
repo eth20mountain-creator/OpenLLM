@@ -26,6 +26,7 @@ class MistralConfig(openllm_core.LLMConfig):
     'model_ids': [
       'HuggingFaceH4/zephyr-7b-alpha',
       'HuggingFaceH4/zephyr-7b-beta',
+      'mistralai/Mistral-7B-Instruct-v0.2',
       'mistralai/Mistral-7B-Instruct-v0.1',
       'mistralai/Mistral-7B-v0.1',
     ],
