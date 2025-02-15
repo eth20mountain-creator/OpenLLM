@@ -1,4 +1,6 @@
-# 🦾 OpenLLM: Self-Hosting LLMs Made Easy
+<div align="center">
+<h1>🦾 OpenLLM: Self-Hosting LLMs Made Easy</h1>
+</div>
 
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202-green.svg)](https://github.com/bentoml/OpenLLM/blob/main/LICENSE)
 [![Releases](https://img.shields.io/pypi/v/openllm.svg?logo=pypi&label=PyPI&logoColor=gold)](https://pypi.org/project/openllm)
@@ -25,16 +27,110 @@ openllm hello
 
 OpenLLM supports a wide range of state-of-the-art open-source LLMs. You can also add a [model repository to run custom models](#set-up-a-custom-repository) with OpenLLM.
 
-| Model            | Parameters | Quantization | Required GPU  | Start a Server                      |
-| ---------------- | ---------- | ------------ | ------------- | ----------------------------------- |
-| Llama 3.3        | 70B        | -            | 80Gx2         | `openllm serve llama3.3:70b`        |
-| Llama 3.2        | 3B         | -            | 12G           | `openllm serve llama3.2:3b`         |
-| Llama 3.2 Vision | 11B        | -            | 80G           | `openllm serve llama3.2:11b-vision` |
-| Mistral          | 7B         | -            | 24G           | `openllm serve mistral:7b`          |
-| Qwen 2.5         | 1.5B       | -            | 12G           | `openllm serve qwen2.5:1.5b`        |
-| Qwen 2.5 Coder   | 7B         | -            | 24G           | `openllm serve qwen2.5-coder:7b`    |
-| Gemma 2          | 9B         | -            | 24G           | `openllm serve gemma2:9b`           |
-| Phi3             | 3.8B       | -            | 12G           | `openllm serve phi3:3.8b`           |
+<table>
+  <tr>
+    <th>Model</th>
+    <th>Parameters</th>
+    <th>Required GPU</th>
+    <th>Start a Server</th>
+  </tr>
+  <tr>
+    <td>deepseek-r1</td>
+    <td>671B</td>
+    <td>80Gx16</td>
+    <td><code>openllm serve deepseek-r1:671b-fc3d</code></td>
+  </tr>
+  <tr>
+    <td>deepseek-r1-distill</td>
+    <td>14B</td>
+    <td>80G</td>
+    <td><code>openllm serve deepseek-r1-distill:qwen2.5-14b-98a9</code></td>
+  </tr>
+  <tr>
+    <td>deepseek-v3</td>
+    <td>671B</td>
+    <td>80Gx16</td>
+    <td><code>openllm serve deepseek-v3:671b-instruct-d7ec</code></td>
+  </tr>
+  <tr>
+    <td>gemma2</td>
+    <td>2B</td>
+    <td>12G</td>
+    <td><code>openllm serve gemma2:2b-instruct-747d</code></td>
+  </tr>
+  <tr>
+    <td>llama3.1</td>
+    <td>8B</td>
+    <td>24G</td>
+    <td><code>openllm serve llama3.1:8b-instruct-3c0c</code></td>
+  </tr>
+  <tr>
+    <td>llama3.2</td>
+    <td>1B</td>
+    <td>24G</td>
+    <td><code>openllm serve llama3.2:1b-instruct-f041</code></td>
+  </tr>
+  <tr>
+    <td>llama3.3</td>
+    <td>70B</td>
+    <td>80Gx2</td>
+    <td><code>openllm serve llama3.3:70b-instruct-b850</code></td>
+  </tr>
+  <tr>
+    <td>mistral</td>
+    <td>8B</td>
+    <td>24G</td>
+    <td><code>openllm serve mistral:8b-instruct-50e8</code></td>
+  </tr>
+  <tr>
+    <td>mistral-large</td>
+    <td>123B</td>
+    <td>80Gx4</td>
+    <td><code>openllm serve mistral-large:123b-instruct-1022</code></td>
+  </tr>
+  <tr>
+    <td>mistralai</td>
+    <td>24B</td>
+    <td>80G</td>
+    <td><code>openllm serve mistralai:24b-small-instruct-2501-0e69</code></td>
+  </tr>
+  <tr>
+    <td>mixtral</td>
+    <td>7B</td>
+    <td>80Gx2</td>
+    <td><code>openllm serve mixtral:8x7b-instruct-v0.1-b752</code></td>
+  </tr>
+  <tr>
+    <td>phi4</td>
+    <td>14B</td>
+    <td>80G</td>
+    <td><code>openllm serve phi4:14b-c12d</code></td>
+  </tr>
+  <tr>
+    <td>pixtral</td>
+    <td>12B</td>
+    <td>80G</td>
+    <td><code>openllm serve pixtral:12b-240910-c344</code></td>
+  </tr>
+  <tr>
+    <td>qwen2.5</td>
+    <td>7B</td>
+    <td>24G</td>
+    <td><code>openllm serve qwen2.5:7b-instruct-3260</code></td>
+  </tr>
+  <tr>
+    <td>qwen2.5-coder</td>
+    <td>7B</td>
+    <td>24G</td>
+    <td><code>openllm serve qwen2.5-coder:7b-instruct-e75d</code></td>
+  </tr>
+  <tr>
+    <td>qwen2.5vl</td>
+    <td>3B</td>
+    <td>24G</td>
+    <td><code>openllm serve qwen2.5vl:3b-instruct-4686</code></td>
+  </tr>
+</table>
 
 ...
 
@@ -46,15 +142,16 @@ To start an LLM server locally, use the `openllm serve` command and specify the 
 
 > [!NOTE]
 > OpenLLM does not store model weights. A Hugging Face token (HF_TOKEN) is required for gated models.
+>
 > 1. Create your Hugging Face token [here](https://huggingface.co/settings/tokens).
-> 2. Request access to the gated model, such as [meta-llama/Meta-Llama-3-8B](https://huggingface.co/meta-llama/Meta-Llama-3-8B).
+> 2. Request access to the gated model, such as [meta-llama/Llama-3.2-1B-Instruct](https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct).
 > 3. Set your token as an environment variable by running:
 >    ```bash
 >    export HF_TOKEN=<your token>
 >    ```
 
 ```bash
-openllm serve llama3:8b
+openllm serve openllm serve llama3.2:1b-instruct-f041
 ```
 
 The server will be accessible at [http://localhost:3000](http://localhost:3000/), providing OpenAI-compatible APIs for interaction. You can call the endpoints with different frameworks and tools that support OpenAI-compatible APIs. Typically, you may need to specify the following:
@@ -79,7 +176,7 @@ client = OpenAI(base_url='http://localhost:3000/v1', api_key='na')
 # print(model_list)
 
 chat_completion = client.chat.completions.create(
-    model="meta-llama/Meta-Llama-3-8B-Instruct",
+    model="meta-llama/Llama-3.2-1B-Instruct",
     messages=[
         {
             "role": "user",
@@ -94,7 +191,6 @@ for chunk in chat_completion:
 
 </details>
 
-
 <details>
 
 <summary>LlamaIndex</summary>
@@ -102,9 +198,10 @@ for chunk in chat_completion:
 ```python
 from llama_index.llms.openai import OpenAI
 
-llm = OpenAI(api_bese="http://localhost:3000/v1", model="meta-llama/Meta-Llama-3-8B-Instruct", api_key="dummy")
+llm = OpenAI(api_bese="http://localhost:3000/v1", model="meta-llama/Llama-3.2-1B-Instruct", api_key="dummy")
 ...
 ```
+
 </details>
 
 ## Chat UI
@@ -138,7 +235,7 @@ openllm repo update
 To review a model’s information, run:
 
 ```bash
-openllm model get llama3:8b
+openllm model get openllm serve llama3.2:1b-instruct-f041
 ```
 
 ### Add a model to the default model repository
@@ -166,7 +263,7 @@ OpenLLM supports LLM cloud deployment via BentoML, the unified model serving fra
 [Sign up for BentoCloud](https://www.bentoml.com/) for free and [log in](https://docs.bentoml.com/en/latest/bentocloud/how-tos/manage-access-token.html). Then, run `openllm deploy` to deploy a model to BentoCloud:
 
 ```bash
-openllm deploy llama3:8b
+openllm deploy openllm serve llama3.2:1b-instruct-f041
 ```
 
 > [!NOTE]
@@ -196,7 +293,6 @@ This project uses the following open-source projects:
 - [bentoml/bentoml](https://github.com/bentoml/bentoml) for production level model serving
 - [vllm-project/vllm](https://github.com/vllm-project/vllm) for production level LLM backend
 - [blrchen/chatgpt-lite](https://github.com/blrchen/chatgpt-lite) for a fancy Web Chat UI
-- [chujiezheng/chat_templates](https://github.com/chujiezheng/chat_templates)
 - [astral-sh/uv](https://github.com/astral-sh/uv) for blazing fast model requirements installing
 
 We are grateful to the developers and contributors of these projects for their hard work and dedication.
